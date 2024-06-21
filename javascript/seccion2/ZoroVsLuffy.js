@@ -18,33 +18,32 @@ recibirDaño(daño) {
 
 defender() {
   this.vida += 9;
-  console.log(`${this.nombre} se defiende y gana 3 puntos de vida! Vida actual: ${this.vida}`);
+  console.log(`${this.nombre} se defiende y gana 9 puntos de vida! Vida actual: ${this.vida}`);
   }
 }
 
 function iniciarPelea(jugador1, jugador2) {
-  let turno = Math.random() < 0.5 ? 1 : 2;
+  let turno = Math.random() < 0.45 ? 1 : 2;
     while (jugador1.vida > 0 && jugador2.vida > 0) {
       if (turno === 1) {
-        const accion = Math.random() < 0.5 ? "atacar" : "defender";
-      if (accion === "atacar") {
-        jugador1.atacar(jugador2);
-        }
-      else {
+        const accion = Math.random() < 0.45 ? "atacar" : "defender";
+        if (accion === "atacar") {
+          jugador1.atacar(jugador2);
+          }
+        else {
         jugador1.defender();
-      }
-      turno = 2;
-      }
-      else {
-      const accion = Math.random() < 0.5 ? "atacar" : "defender";
-      if (accion === "atacar") {
-        jugador2.atacar(jugador1);
         }
-      else {
-        jugador2.defender();
       }
-      turno = "defender";
-      }
+      if (turno === 2) {
+        const accion = Math.random() < 0.45 ? "atacar" : "defender";
+        if (accion === "atacar") {
+          jugador2.atacar(jugador1);
+          }
+        else {
+          jugador2.defender();
+        }
+        turno = "defender";
+        }
     }
 
     if (jugador1.vida > 0) {
