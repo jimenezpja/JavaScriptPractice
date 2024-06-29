@@ -5,11 +5,11 @@ class Personaje {
     this.vida = vida;
   }
 
-  atacar(oponente) {
+atacar(oponente) {
   let daño = Math.floor(Math.random()*this.ataque) + 1;
   console.log(`${this.nombre} ataca a ${oponente.nombre} por ${daño} puntos de daño!`);
   oponente.recibirDaño(daño);
-  }
+}
 
 recibirDaño(daño) {
   this.vida -= daño;
