@@ -4,7 +4,7 @@ const expresiones = {
 	Nombre:/^[a-zA-ZÀ-ÿ\s]{2,40}$/,
   Apellido: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
 	Correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  Contraseña: /^.[0-9a-zA-ZÀ-ÿ\s]{7,20}$/,
+  Contraseña: /^.[0-9a-zA-ZÀ-ÿ\S.]{7,20}$/,
 	Telefono: /^\d{11,20}$/,
   Pasaporte: /^[V|E][0-9]{5,9}$/
 
@@ -87,6 +87,12 @@ formulario.addEventListener('submit', (e) =>{
   e.preventDefault();
   if(campos.Nombre && campos.Apellido && campos.Correo &&campos.Contraseña && campos.Telefono && campos.Pasaporte){
     formulario.reset();
+    document.getElementById('envio_exito').classList.remove('hidden');
+    document.getElementById('envio_exito').classList.add('flex');
+    setTimeout(() =>{
+      document.getElementById('envio_exito').classList.add('hidden');
+      document.getElementById('envio_exito').classList.remove('flex');
+    }, 3000);
   }
 });
 
